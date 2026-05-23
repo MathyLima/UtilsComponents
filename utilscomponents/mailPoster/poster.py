@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from models import MailPayload
+from .models import MailPayload
 
 from dotenv import load_dotenv
 
