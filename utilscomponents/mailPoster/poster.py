@@ -33,23 +33,17 @@ class Poster:
             MIMEText(payload.body, "plain")
         )
 
-        try:
+        try: 
+            print(EMAIL_ADDRESS)
+            print(EMAIL_PASSWORD)
 
-            with smtplib.SMTP(
-                "smtp.gmail.com",
-                587
-            ) as server:
-
+            with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                server.ehlo()
                 server.starttls()
+                server.ehlo()
 
-                server.login(
-                    EMAIL_ADDRESS,
-                    EMAIL_PASSWORD
-                )
-
+                server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
                 server.send_message(message)
-
-                print("Email enviado com sucesso!")
 
         except Exception as e:
 
